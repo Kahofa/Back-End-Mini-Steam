@@ -8,11 +8,13 @@ import java.util.Scanner;
 @Component
 public class AppService {
     private final GameLibraryService gameLibraryService;
+    private final NotificationService notificationService;
     private final Scanner scanner = new Scanner(System.in);
 
     @Autowired
-    public AppService(GameLibraryService gameLibraryService) {
+    public AppService(GameLibraryService gameLibraryService, NotificationService notificationService) {
         this.gameLibraryService = gameLibraryService;
+        this.notificationService = notificationService;
     }
 
     public void run() {
@@ -55,5 +57,6 @@ public class AppService {
         scanner.nextLine();
 
         gameLibraryService.addGame(title, genre, price);
+        notificationService.sendNotification("Добавлена новая игра: " + title);
     }
 }

@@ -13,6 +13,6 @@ public class Game {
 
     @Override
     public String toString() {
-        return title + " | Жанр: " + genre + " | Цена: " + price + " USD";
+        return "Название игры" + title + " | Жанр: " + genre + " | Цена: " + price + " USD";
     }
 }
